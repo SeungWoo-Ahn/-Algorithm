@@ -13,13 +13,9 @@ public class Kakao2022Intern_1 {
 	static String solution(String[] survey, int[] choices) {
 		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < survey.length; i++) {
-			int choice = choices[i];
-			int score = Math.abs(choice - 4);
-			if(choice < 4) {
-				table[getTableIndex(survey[i].charAt(0))] = table[getTableIndex(survey[i].charAt(0))] + score;
-			} else {
-				table[getTableIndex(survey[i].charAt(1))] = table[getTableIndex(survey[i].charAt(1))] + score;
-			}
+			int score = Math.abs(choices[i] - 4);
+			char wonType = choices[i] < 4 ? survey[i].charAt(0) : survey[i].charAt(1);
+			table[getTableIndex(wonType)] = table[getTableIndex(wonType)] + score;
 		}
 		sb
 		.append(selectType('R', 'T'))
